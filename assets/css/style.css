@@ -1,3 +1,8 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
 .top-display{
     display: flex;
     flex-wrap: wrap;
@@ -10,16 +15,19 @@
 .high-score{
     color:blueviolet;
     font-size: 1.0rem
-}
+    }
 
 .timer{
    color: rgb(13, 13, 14);
    font-size: 1.0rem;
+   }
+
+
+.wrapper{
+    text-align: center;
+    padding: 40px;
 }
 
-.start{
-    text-align: center;
-}
 
 h1{
     padding: 20px;
@@ -31,33 +39,61 @@ p{
     padding: 10px;
     font-size: 16px;
 }
+
 h2{
     padding: 25px;
     font-size: 20px;
     font-weight: 900; 
 }
 
+#quiz-screen {
+    margin-bottom: 10px;
+}
+
+.question {
+    width: 50%;
+    margin: 0 auto;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    margin:0 auto;
+}
+
+ol > li > button{
+    width: 100%;
+    text-align: left;
+    transition: background 0.3s linear 0.1s, color 0.3s linear 0s;
+}
+
+ol > li > button:hover {
+    background:  rgba(137, 43, 226, 0.742);
+    color: #fff;
+}
+
 button{
     background-color: blueviolet;
-    width: 100px;
-    height: 25px;
+    padding: 8px;
     border-radius: 7px;
     justify-content: center;
     color: aliceblue;
-
-
-} 
-li{
-    padding-bottom: 5px;
-}
-li button{
-    text-align: left;
-} 
+    margin-bottom: 5px;
+    
+ }  
  
 .hide{
     display: none
 }
 
-.options{
+.status {
+    border-top: 1px solid #999;
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
     padding: 10px;
 }
+
+
