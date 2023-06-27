@@ -62,17 +62,19 @@ for (i of quizbtns){
     startScreen.setAttribute("class", "hide");
     scoreScreen.classList.add("hide");
 
-    //display timer;
+    // display timer;
     displayTimer();
   
-    //build the questions into HTML
+    // build the questions into HTML
     buildQuestions();
 
-  
+    // show the quizScreen
     quizScreen.classList.remove("hide");
+    timeleft = 75;
   
-    //display each question
+    // reset the question index, score and display each question
     questionIndex = 0;
+    quizScore = 0;
     displayQuestion();
   
   });
@@ -102,6 +104,7 @@ function displayTimer() {
     time.textContent = timeleft;
     if ( timeleft <= 0){
         clearInterval(timeInterval);
+        endQuiz();
     }
   }, 1000);
 }
@@ -163,14 +166,14 @@ function displayQuestion(){
     questions[i].classList.add("question", "hide");
   }
 
-  // second step: show on the current question that needs an answer
+  // second step: show on the current question that needs an answer, if all questions are done end the quiz.
   if (questionIndex < quizQuestions.length) {
     questions[questionIndex].classList.remove("hide");
     questionIndex++;
   } else {
 
-    finalScore.innerHTML = quizScore;
-    endScreen.classList.remove("hide");
+    clearInterval(timeInterval);
+    endQuiz();
 
   }
 }
@@ -208,6 +211,7 @@ function displayAnswer(x){
     quizScore++;
     answerDiv.innerHTML = "Correct!";
   } else {
+    // for a wrong answer, deduct 10 seconds
     timeleft = timeleft - 10;
     answerDiv.innerHTML = "Wrong!";
 
@@ -218,6 +222,19 @@ function displayAnswer(x){
   },500); 
 
   return showAnswerStatus;
+}
+
+// end the quiz
+function endQuiz(){
+
+  // hide the quizScreen
+  quizScreen.classList.add("hide");
+  timeleft = 0;
+
+  // show the final score
+  finalScore.innerHTML = quizScore;
+  endScreen.classList.remove("hide");
+
 }
 
 // save the final score into the localStorage for future accessibility

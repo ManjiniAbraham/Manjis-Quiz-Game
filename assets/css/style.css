@@ -3,6 +3,7 @@ body {
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
+/* show the top bar on the screen*/
 .top-display{
     display: flex;
     flex-wrap: wrap;
@@ -15,26 +16,29 @@ body {
 .high-score{
     color:blueviolet;
     font-size: 1.0rem
-    }
+}
 
+/* set the timer color */
 .timer{
    color: rgb(13, 13, 14);
    font-size: 1.0rem;
-   }
+}
 
-
+/* wrapper contains the main content */
 .wrapper{
     text-align: center;
     padding: 40px;
 }
 
 
+/* setting standard styles */
 h1{
     padding: 20px;
     font-size: 28px;
     font-weight: 900;
 
 }
+
 p{
     padding: 10px;
     font-size: 16px;
@@ -50,6 +54,7 @@ h2{
     margin-bottom: 10px;
 }
 
+/* set the style for each question and button style of each answer under the orderered list*/
 .question {
     width: 50%;
     margin: 0 auto;
@@ -74,6 +79,7 @@ ol > li > button:hover {
     color: #fff;
 }
 
+/* style of the standard button answer */
 button{
     background-color: blueviolet;
     padding: 8px;
@@ -84,6 +90,7 @@ button{
     
  }  
 
+/* style of the status bar below each question area */
 .status {
     border-top: 1px solid #999;
     width: 50%;
@@ -94,7 +101,7 @@ button{
 }
 
 
-// Styles for high scores table
+/* Styles for high scores table */
 
 th, td {
     border-style: solid;
@@ -118,11 +125,12 @@ td {
     background: rgba(230,230,230,1);
 }
 
-
+/* the second column showing the score could be shorter than the first */
 td:nth-child(2){
     width: 20%;
 }
 
+/* use flex to arrange the dynamically created high scores table */
 .score-screen{
     display: flex;
     align-content: center;
@@ -134,6 +142,7 @@ td:nth-child(2){
     display: none !important;
 }
 
+/* style for the high scores table */
 .score-table{
     width: 80%;
     display: flex;
@@ -142,6 +151,7 @@ td:nth-child(2){
 
 }
 
+/* the table should take atleast 100% of the width of the main container */
 table {
     margin-bottom: 30px;
     min-width: 100%;

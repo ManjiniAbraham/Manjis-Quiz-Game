@@ -34,12 +34,14 @@ https://stackoverflow.com/
 
 https://www.youtube.com/watch?v=5fb2aPlgoys
 
+https://www.microverse.org/blog/how-to-loop-through-the-array-of-json-objects-in-javascript
+
 
 ## Features
 
-* The timig quiz has the following features:
+* The timed quiz has the following features:
 	* A start page with a "Start" button to start the quiz
-	* About 5 questions multiple choice questions.
+	* About 5 multiple choice questions.
 	* Timer to track time reamining for the test. Test should be completed with in 75 sec.
 	* Highscores page to display your scores in descending order (highest on top).
 	* Reset and Take quiz buttons to reset all scores and take the quiz again respectively.
