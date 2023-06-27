@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="top-display">   
-      <div class="high-score">View Highscore </div>
+      <div class="high-score"><a id="show-scores">View Highscore</a></div>
       <div class="timer">Time: <span id="time">0</span></div>
   </div>
 
@@ -22,7 +22,7 @@
          Try to answer the following code-related questions within the time limit.
         keep in mind that incorrect answers will penalize your scoretime by ten seconds!.
       </p>
-      <button id="startBtn">Start Quiz</button>
+      <button id="quizstart">Start Quiz</button>
     </div>
 
     <div id="quiz-screen">
@@ -38,11 +38,17 @@
       </p>
     </div>
     
-    <div id="score-screen" class="hide">
+    <div id="score-screen" class="score-screen hide">
       <h2>High Scores</h2>
-      <button id="reset" onclick="resetScores()">Reset Scores</button>
-      <button id="startBtn">Take Quiz</button>
+      <div id="score-table" class="score-table">
+
+      </div>
+      <div class="btn-group">
+        <button id="reset" onclick="resetScores()">Reset Scores</button>
+        <button id="quizstart">Take Quiz</button>
+      </div>
     </div>
+
     <div id="answer" class="status hide">
       <label></label>
     </div>
