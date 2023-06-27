@@ -10,11 +10,15 @@ NA
 
 Screenshots from Live site
 
-![Main Page](assets/images/Main Page.png)
+![Main Page](assets/images/MainPage.png)
 
 ![Questions page](assets/images/QuestionsPage.png)
 
-Application URL: 
+![High Scores](assets/images/HighScoresPage.png)
+
+![Last Page](assets/images/LastPage.png)
+
+Application URL: https://manjiniabraham.github.io/Manjis-Quiz-Game/
 
 ## Credits
 
@@ -36,7 +40,9 @@ https://www.youtube.com/watch?v=5fb2aPlgoys
 * The timig quiz has the following features:
 	* A start page with a "Start" button to start the quiz
 	* About 5 questions multiple choice questions.
-	* Timer to track time reamining for the test
+	* Timer to track time reamining for the test. Test should be completed with in 75 sec.
 	* Highscores page to display your scores in descending order (highest on top).
+	* Reset and Take quiz buttons to reset all scores and take the quiz again respectively.
+	* Wrong answers will deduct 10 secs from the time remaining.
 
-## Known Issues:
+

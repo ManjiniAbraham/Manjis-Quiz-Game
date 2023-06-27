@@ -1,4 +1,4 @@
-//Creating an array of questions.
+//Creating an array of questions
 
 var quizQuestions = [
   {
@@ -50,7 +50,7 @@ var questionIndex = 0;
 var quizScore = 0;
 let quizScores = localStorage.quizScores ? JSON.parse(localStorage.quizScores) : [];
 
-//Variable to hold state for setInterval
+//holds state for setInterval
 var timeInterval;
 
 // create event listener for quiz start button(s) that starts timer , hide start screen and unhide questions
@@ -78,37 +78,22 @@ for (i of quizbtns){
   });
 }
 
-startBtn.addEventListener("click", function(){
-
-  startScreen.setAttribute("class", "hide");
-  
-
-  //display timer;
-  displayTimer();
-
-  //build the questions into HTML
-  buildQuestions();
-
-  quizScreen.classList.remove("hide");
-
-  //display each question
-  displayQuestion();
-
-});
-
+// create event listener for the click event of showing the high scorees
 showhighScores.addEventListener("click", function(){
 
+  // hide all the main elements 
   startScreen.classList.add("hide");
   quizScreen.classList.add("hide");
   endScreen.classList.add("hide");
   answerDiv.classList.add("hide");
 
+  // call the score screen
   showScores();
 
 })
 
 
-
+// display timer based on seconds limit
 function displayTimer() {
   timeInterval = setInterval(function(){
     //subtract 1 from previous timeleft state
@@ -121,11 +106,13 @@ function displayTimer() {
   }, 1000);
 }
 
+// build all the questions into the maind div quiz-screen
 function buildQuestions(){
 
   var questionsDiv = document.createElement("div");
   questionsDiv.setAttribute("id", "questions");
 
+  // for each question build the question div with data attributes
   quizQuestions.forEach(function(question, qIndex){
     var questionDiv = document.createElement("div");
     questionDiv.setAttribute("id", "question");
@@ -139,6 +126,7 @@ function buildQuestions(){
     var answerList = document.createElement("ol");
     answerList.setAttribute("data-answers",question.options.length);
 
+    // for each questions answers, create buttons for each answer and attach data attributes that contain index of the question and associated answer
     question.options.forEach(function(answer,aIndex){
       var answerListItem = document.createElement("li");  
       var answerButton = document.createElement("button");
@@ -151,37 +139,44 @@ function buildQuestions(){
       answerList.append(answerListItem);
     });
 
-    //append the answers to the question
+    //append the answers to the question div
     questionDiv.append(answerList);
 
-    //append the questions to the main list
+    // append the questions to the main questions div
     questionsDiv.append(questionDiv);
 
   });
 
+  // append to the quiz screen
   quizScreen.append(questionsDiv);
 
 }
 
+
+// display each question based on the questionIndex (current question)
 function displayQuestion(){
 
   var questions = document.querySelectorAll('[data-question]');
+
+  // first step: hide all the quetsions
   for (var i=0; i < questions.length; i++){
     questions[i].classList.add("question", "hide");
   }
 
+  // second step: show on the current question that needs an answer
   if (questionIndex < quizQuestions.length) {
     questions[questionIndex].classList.remove("hide");
     questionIndex++;
   } else {
-    
+
     finalScore.innerHTML = quizScore;
-    endScreen.setAttribute("class","");
+    endScreen.classList.remove("hide");
+
   }
 }
 
 
-//checking for the right answer
+//checking for the right answer use the data attributes of the buttons against the quetions list
 function checkAnswer(x){
 
   var target = x.target;
@@ -195,9 +190,11 @@ function checkAnswer(x){
   }
 }
 
+
+// display if the answer is right or wrong
 function displayAnswer(x){
 
-//check for the Answer
+  //check for the Answer
   var showAnswerStatus = checkAnswer(x);
 
   answerDiv.classList.remove('hide');
@@ -223,6 +220,7 @@ function displayAnswer(x){
   return showAnswerStatus;
 }
 
+// save the final score into the localStorage for future accessibility
 function saveScore(){
 
   var nameInitial = document.getElementById("initials").value;
@@ -239,6 +237,7 @@ function saveScore(){
 }
 
 
+// show the high scores in a table 
 function showScores(){
 
   //hide existing screens
@@ -246,8 +245,10 @@ function showScores(){
   endScreen.classList.add("hide");
   answerDiv.classList.add("hide");
 
+  // build the table of the scores with the data stored in localStorage
   tbl = document.createElement('table');
 
+  // build the header of the table with two columns - Name and Score
   tbh = document.createElement('thead');
 
   tbth = document.createElement('th');
@@ -260,27 +261,27 @@ function showScores(){
 
   tbl.append(tbh);
 
+  // build the body of the score table
   tbody = document.createElement('tbody');
 
-  scoreTable.innerHTML = "";
+  // for each score that's stored, create a row with two columns and appending the name and score.
 
   if (quizScores.length > 0) {
-
     for (let i = 0; i < quizScores.length; i++) {
       var tr = document.createElement('tr');
       var quiz = quizScores[i];
 
       for (key in quiz) {
-        console.log(key+ ": "+ quiz[key]);
         var td = document.createElement('td');
         td.textContent = quiz[key];
         tr.appendChild(td);
       }
 
       tbody.appendChild(tr);
-
     }
   } else {
+
+    // if there are no scores, or list has been reset, show an empty table
     var tr = document.createElement("tr");
     var td = document.createElement('td');
     td.setAttribute("colspan", 2);
@@ -289,13 +290,19 @@ function showScores(){
     tbody.appendChild(tr);
   }
 
+  // append the table with the table body that got created
   tbl.appendChild(tbody);
 
+  // makesure the score-table is empty before appending it.
+  scoreTable.innerHTML = "";
   scoreTable.append(tbl);
+
+  // show the high scores screen
   scoreScreen.classList.remove("hide");
 
 }
 
+// reset scores 
 function resetScores(){
   quizScores = [];
   localStorage.removeItem('quizScores');
