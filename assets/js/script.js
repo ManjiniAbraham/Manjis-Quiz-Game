@@ -1,4 +1,4 @@
-//Creating an array of questions
+//Creating an array of questions.
 
 var quizQuestions = [
   {
@@ -50,7 +50,7 @@ var questionIndex = 0;
 var quizScore = 0;
 let quizScores = localStorage.quizScores ? JSON.parse(localStorage.quizScores) : [];
 
-//holds state for setInterval
+//Variable to hold state for setInterval
 var timeInterval;
 
 // create event listener for quiz start button(s) that starts timer , hide start screen and unhide questions

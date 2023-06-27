@@ -2,7 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
-
+/*Styles for Main, questions pages*/
 .top-display{
     display: flex;
     flex-wrap: wrap;
@@ -94,9 +94,7 @@ button{
 }
 
 
-// Styles for high scores table
-
-
+/*Styles for high scores table*/
 
 th, td {
     border-style: solid;
